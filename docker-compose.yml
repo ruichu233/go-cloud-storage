@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+  mysql:
+    image: 'mysql:latest'
+    ports:
+      - "33066:3306"
+    volumes:
+      - ./deploy/mysql:/docker-entrypoint-initdb.d
+    environment:
+      - MYSQL_DATABASE=gcs
+      - MYSQL_USER=gcs
+      - MYSQL_PASSWORD=123456
+      - MYSQL_RANDOM_ROOT_PASSWORD="yes"
+  Etcd:
+    image: 'bitnami/etcd:latest'
+    environment:
+      - ALLOW_NONE_AUTHENTICATION=yes
+    ports:
+      - "2379:2379"
+  redis:
+    image: redis:latest
+    restart: always
+    container_name: redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./deploy/redis/redis.conf:/etc/redis/redis.conf
+    command: redis-server /etc/redis/redis.conf
+    privileged: true

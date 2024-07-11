@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"go-cloud-storage/meta"
+	"go-cloud-storage/app/model"
 	"go-cloud-storage/util"
 	"io"
 	"log"
@@ -32,7 +32,7 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 			_ = file.Close()
 		}(file)
 		// 获取文件元信息
-		fileMeta := meta.FileMeta{
+		fileMeta := model.FileMeta{
 			FileName: header.Filename,
 			Location: "./tem/" + header.Filename,
 			UploadAt: time.Now().Format("2006-01-02 15:04:05"),
@@ -55,7 +55,7 @@ func UploadHandler(w http.ResponseWriter, r *http.Request) {
 
 		_, _ = newFile.Seek(0, 0)
 		fileMeta.FileSha1 = util.FileSha1(newFile)
-		meta.UpdateFileMeta(fileMeta)
+		model.UpdateFileMeta(fileMeta)
 		http.Redirect(w, r, "/file/upload/success", http.StatusFound)
 	}
 }

@@ -1,0 +1,25 @@
+server:
+  name: user-server
+  addr: 127.0.0.1:8081
+  mode: debug
+  timeout: 2
+  jwt-secret: 123456
+  salt: 123456
+  version: v1.0.0
+
+mysql:
+  host: 127.0.0.1
+  port: 33066
+  username: gcs
+  password: 123456
+  database: gcs
+  charset: utf8mb4
+
+redis:
+  addr: 127.0.0.1:6379
+  password: 123456
+  db: 0
+
+etcd:
+  addr: 127.0.0.1:2379
+

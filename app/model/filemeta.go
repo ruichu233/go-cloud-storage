@@ -1,4 +1,4 @@
-package meta
+package model
 
 // 文件元信息
 type FileMeta struct {

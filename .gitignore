@@ -77,7 +77,7 @@ fabric.properties
 # Editor-based Rest Client
 .idea/httpRequests
 
-# Android studio 3.1+ serialized cache file
+# Android studio 3.1+ serialized redis file
 .idea/caches/build_file_checksums.ser
 
 ### GoLand+all Patch ###
@@ -90,7 +90,7 @@ fabric.properties
 !.idea/runConfigurations
 
 ### Windows ###
-# Windows thumbnail cache files
+# Windows thumbnail redis files
 Thumbs.db
 Thumbs.db:encryptable
 ehthumbs.db

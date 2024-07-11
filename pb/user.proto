@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package user;
+
+option go_package = "api/v1";
+service UserService{
+  rpc Signup (SignupRequest) returns (SignupResponse){};
+  rpc Login (LoginRequest) returns (LoginResponse){}
+
+}
+
+
+message SignupRequest{
+  string userName = 1;
+  string password = 2;
+}
+
+message SignupResponse{
+  int32 code = 1;
+  string message = 2;
+  int64 user_id = 3;
+  string token=4;
+}
+
+message LoginRequest{
+  string userName = 1;
+  string password = 2;
+}
+
+message LoginResponse{
+  int32 code = 1;
+  string message = 2;
+  int64 user_id = 3;
+  string token=4;
+}
+
